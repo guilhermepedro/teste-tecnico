@@ -1,7 +1,7 @@
 export class Paciente {
     nome?: string;
     cpf?: number;
-    dtCriacao?: number;
+    dtCriacao?: string;
     telefone?: string;
     dtNascimento?: string;
     endereco?: string;
