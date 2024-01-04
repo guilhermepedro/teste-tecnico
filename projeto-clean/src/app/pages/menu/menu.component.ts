@@ -16,7 +16,8 @@ export class MenuComponent implements OnInit {
     'dtCriacao', 
     'telefone', 
     'dtNascimento', 
-    'endereco'];
+    'endereco',
+    'icone'];
 
   dataSource = new MatTableDataSource<Paciente>(ELEMENT_DATA);
 
