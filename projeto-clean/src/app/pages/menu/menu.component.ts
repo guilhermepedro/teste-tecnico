@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Paciente } from 'src/app/model/paciente';
+import { PacienteService } from 'src/services/Paciente/paciente.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +12,8 @@ import { Paciente } from 'src/app/model/paciente';
 })
 export class MenuComponent implements OnInit {
 
+  listaPaciente: Paciente[] = [];
+
   displayedColumns: string[] = [
     'nome', 
     'cpf', 
@@ -17,9 +21,10 @@ export class MenuComponent implements OnInit {
     'telefone', 
     'dtNascimento', 
     'endereco',
-    'icone'];
+    'icone'
+  ];
 
-  dataSource = new MatTableDataSource<Paciente>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Paciente>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -27,22 +32,21 @@ export class MenuComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   
-  constructor() { }
+  constructor(private pacienteService: PacienteService, 
+    private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.listarPaciente();
+  }
+
+  listarPaciente() {
+    this.pacienteService.listar().subscribe((response) => {
+      this.listaPaciente = response;
+      this.dataSource = new MatTableDataSource<Paciente>(this.listaPaciente);
+      this.dataSource.paginator = this.paginator;
+
+    }, (error) => {console.log(error)})
   }
 
 }
 
-export interface PeriodicElement {
-  nome: string, 
-  cpf: number, 
-  dtCriacao: string,
-  telefone: string,
-  dtNascimento: string, 
-  endereco: string
-}
-
-const ELEMENT_DATA: Paciente[] = [
-  {nome: 'Hydrogen', cpf: 10079, dtCriacao: '10/10/10', telefone: '1522222', dtNascimento: '522222', endereco: 'sdadasd'},
-];
