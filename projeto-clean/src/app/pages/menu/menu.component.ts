@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { AdicionarEditarComponent } from 'src/app/modais/adicionar-editar.component';
 import { Paciente } from 'src/app/model/paciente';
 import { PacienteService } from 'src/services/Paciente/paciente.service';
 
@@ -32,12 +34,21 @@ export class MenuComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   
-  constructor(private pacienteService: PacienteService, 
+  constructor(private dialog: MatDialog, private pacienteService: PacienteService, 
     private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.listarPaciente();
   }
+
+  abrirAdicionarEditar() {
+		const dialogRef = this.dialog.open(AdicionarEditarComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.listarPaciente();
+    })
+
+	}
+
 
   listarPaciente() {
     this.pacienteService.listar().subscribe((response) => {

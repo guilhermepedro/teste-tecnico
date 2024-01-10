@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Adicionar paciente</h2>
+    </div>
+    <mat-dialog-content fxLayout="row" fxLayoutAlign="center" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" placeholder="Nome" #input>
+                </mat-form-field>
+            
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>CPF</mat-label>
+                    <input matInput formControlName="cpf" placeholder="CPF" #input>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Data de criação</mat-label>
+                    <input matInput formControlName="dtCriacao" placeholder="Data de criação" #input>
+                </mat-form-field>
+            
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput formControlName="telefone" placeholder="Telefone" #input>
+                </mat-form-field>
+           
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput formControlName="dtNascimento" placeholder="Data de nascimento" #input>
+                </mat-form-field>
+            
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Endereço</mat-label>
+                    <input matInput formControlName="endereco" placeholder="Endereço" #input>
+                </mat-form-field>
+            </div>
+            <button mat-button mat-raised-button color="primary" fxFlex="grow" (click)=" adicionarPaciente()">
+                Salvar
+            </button>
+        </div>
