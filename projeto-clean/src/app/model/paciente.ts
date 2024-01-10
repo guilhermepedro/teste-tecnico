@@ -1,4 +1,5 @@
 export class Paciente {
+    id!: number;
     nome?: string;
     cpf?: number;
     dtCriacao?: string;

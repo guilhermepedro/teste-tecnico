@@ -48,5 +48,26 @@ export class MenuComponent implements OnInit {
     }, (error) => {console.log(error)})
   }
 
+  deletarPaciente(paciente: Paciente): void {
+    this.pacienteService.deletar(paciente.id).subscribe(
+        () => {
+            this.listarPaciente();
+            this.snackbar.open(
+              'Paciente deletada com sucesso', 'Fechar', {
+                duration: 3000
+            });
+        },
+        (error) => {
+            this.snackbar.open(
+                'Erro ao deletar paciente',
+                'Tenta novamente',
+                {
+                    duration: 3000
+                }
+            );
+        }
+    );
+}
+
 }
 
