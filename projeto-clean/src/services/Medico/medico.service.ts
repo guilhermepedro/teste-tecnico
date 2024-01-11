@@ -13,15 +13,15 @@ export class MedicoService {
   constructor(private http: HttpClient) {}
 
   listar(): Observable<Medico[]> {
-    return this.http.get<Medico[]>(`${environment.url_api}`).pipe(take(1));
+    return this.http.get<Medico[]>(`${environment.url_api2}`).pipe(take(1));
   }
 
   adicionar(medico: Medico): Observable<Medico> {
-    return this.http.post<Medico>(`${environment.url_api}`, medico).pipe(take(1));
+    return this.http.post<Medico>(`${environment.url_api2}`, medico).pipe(take(1));
   }
 
   deletar(id: number): Observable<void> {
-    return this.http.delete<void>(`${environment.url_api}?medico_ID=${id}`).pipe(take(1));
+    return this.http.delete<void>(`${environment.url_api2}?medico_ID=${id}`).pipe(take(1));
   }
 
 

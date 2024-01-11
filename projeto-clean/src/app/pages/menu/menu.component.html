@@ -10,18 +10,14 @@
             <mat-label>Pesquisar paciente</mat-label>
             <input matInput />
         </mat-form-field>
-        <div class="row" style="float: right;">
-          <div class="col">
-              <button style="background-color: #262B39; color: rgb(240, 255, 255);" mat-button fxFlex="grow" type="button"
-                  >Limpar <mat-icon>backspace</mat-icon></button>
-          </div>
-          <div class="col">
-              <button mat-button mat-raised-button color="primary" fxFlex="grow" (click)="abrirAdicionarEditar()">
-                  Adicionar <mat-icon>add</mat-icon>
-              </button>
-          </div>
-      
-      </div>
+        <div class="btn">
+          <button mat-button mat-raised-button color="primary" class="btn1">
+              Adicionar paciente <mat-icon>add</mat-icon>
+          </button>
+          <button mat-button mat-raised-button color="primary" class="btn2">
+              Adicionar médico <mat-icon>add</mat-icon>
+          </button>
+        </div>
       </div>
       <mat-tab-group>
         <mat-tab label="Pacientes">
@@ -92,12 +88,12 @@
 
               <ng-container matColumnDef="icone">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td class="layout-menu" mat-cell *matCellDef="let medicos">
+                <td class="layout-menu" mat-cell *matCellDef="let medico">
                     <button mat-icon-button aria-label="ícone Button" class="icon-spacing">
                         <mat-icon color="primary"> border_color</mat-icon>
                     </button>
                     <button mat-icon-button aria-label="ícone Button" class="icon-spacing"
-                    >
+                    (click)="deletarMedico(medico)">
                         <mat-icon color="warn">delete</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">

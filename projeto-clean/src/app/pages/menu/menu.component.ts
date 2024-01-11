@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AdicionarEditarComponent } from 'src/app/modais/adicionar-editar.component';
 import { Medico } from 'src/app/model/medico';
 import { Paciente } from 'src/app/model/paciente';
+import { MedicoService } from 'src/services/Medico/medico.service';
 import { PacienteService } from 'src/services/Paciente/paciente.service';
 
 @Component({
@@ -16,6 +17,8 @@ import { PacienteService } from 'src/services/Paciente/paciente.service';
 export class MenuComponent implements OnInit {
 
   listaPaciente: Paciente[] = [];
+
+  listaMedico: Medico[] = [];
 
   displayedColumns: string[] = [
     'nome', 
@@ -32,7 +35,8 @@ export class MenuComponent implements OnInit {
     'numeroCRM', 
     'especializacao',  
     'endereco',
-    'pacientes'
+    'pacientes',
+    'icone'
   ];
 
   dataSource = new MatTableDataSource<Paciente>();
@@ -46,10 +50,11 @@ export class MenuComponent implements OnInit {
   }
   
   constructor(private dialog: MatDialog, private pacienteService: PacienteService, 
-    private snackbar: MatSnackBar) { }
+    private medicoService: MedicoService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.listarPaciente();
+    this.listarMedico();
   }
 
   abrirAdicionarEditar() {
@@ -89,6 +94,42 @@ export class MenuComponent implements OnInit {
         }
     );
 }
+
+listarMedico() {
+  this.medicoService.listar().subscribe((response) => {
+    this.listaMedico = response;
+    this.dataSourceMedico = new MatTableDataSource<Medico>(this.listaMedico);
+    this.dataSource.paginator = this.paginator;
+
+  }, (error) => {console.log(error)})
+}
+
+deletarMedico(medico: Medico): void {
+  this.medicoService.deletar(medico.id).subscribe(
+      () => {
+          this.listarMedico();
+          this.snackbar.open(
+            'Médico deletada com sucesso', 'Fechar', {
+              duration: 3000
+          });
+      },
+      (error) => {
+          this.snackbar.open(
+              'Erro ao deletar médico',
+              'Tenta novamente',
+              {
+                  duration: 3000
+              }
+          );
+      }
+  );
+}
+
+
+
+
+
+
 
 }
 

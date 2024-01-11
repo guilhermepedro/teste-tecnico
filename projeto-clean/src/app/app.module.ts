@@ -11,6 +11,7 @@ import { ToolbarModule } from './layout/toolbar/toolbar.module';
 import { AdicionarEditarComponent } from './modais/adicionar-editar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -28,7 +29,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MaterialModule,
     ToolbarModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: true // ao salvar, vai manter a mascara
+    }),
     
   ],
   providers: [],
