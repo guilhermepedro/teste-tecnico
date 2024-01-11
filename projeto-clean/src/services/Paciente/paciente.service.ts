@@ -20,7 +20,7 @@ export class PacienteService {
   }
 
   deletar(id: number): Observable<void> {
-    return this.http.delete<void>(`${environment.url_api}?paciente_ID=${id}`);
+    return this.http.delete<void>(`${environment.url_api}?paciente_ID=${id}`).pipe(take(1));
   }
   
 }

@@ -10,6 +10,9 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { ToolbarModule } from './layout/toolbar/toolbar.module';
 import { AdicionarEditarComponent } from './modais/adicionar-editar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTabsModule } from '@angular/material/tabs';
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     ToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

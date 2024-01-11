@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdicionarEditarComponent } from 'src/app/modais/adicionar-editar.component';
+import { Medico } from 'src/app/model/medico';
 import { Paciente } from 'src/app/model/paciente';
 import { PacienteService } from 'src/services/Paciente/paciente.service';
 
@@ -26,7 +27,17 @@ export class MenuComponent implements OnInit {
     'icone'
   ];
 
+  displayedColumnsMedico: string[] = [
+    'nome', 
+    'numeroCRM', 
+    'especializacao',  
+    'endereco',
+    'pacientes'
+  ];
+
   dataSource = new MatTableDataSource<Paciente>();
+
+  dataSourceMedico = new MatTableDataSource<Medico>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -48,7 +59,6 @@ export class MenuComponent implements OnInit {
     })
 
 	}
-
 
   listarPaciente() {
     this.pacienteService.listar().subscribe((response) => {

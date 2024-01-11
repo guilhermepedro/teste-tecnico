@@ -23,63 +23,129 @@
       
       </div>
       </div>
+      <mat-tab-group>
+        <mat-tab label="Pacientes">
+
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+
+              <ng-container matColumnDef="icone">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td class="layout-menu" mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="ícone Button" class="icon-spacing">
+                        <mat-icon color="primary"> border_color</mat-icon>
+                    </button>
+                    <button mat-icon-button aria-label="ícone Button" class="icon-spacing"
+                    (click)="deletarPaciente(element)">
+                        <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    </mat-menu>
+                </td>
+            </ng-container>
         
-                <div class="mat-elevation-z8">
-                    <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Nome </th>
+                <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="cpf">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> CPF </th>
+                <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="dtCriacao">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Data de Criação </th>
+                <td mat-cell *matCellDef="let element"> {{element.dtCriacao}} </td>
+              </ng-container>
 
-                      <ng-container matColumnDef="icone">
-                        <th mat-header-cell *matHeaderCellDef></th>
-                        <td class="layout-menu" mat-cell *matCellDef="let element">
-                            <button mat-icon-button aria-label="ícone Button" class="icon-spacing">
-                                <mat-icon color="primary"> border_color</mat-icon>
-                            </button>
-                            <button mat-icon-button aria-label="ícone Button" class="icon-spacing">
-                                <mat-icon color="warn">delete</mat-icon>
-                            </button>
-                            <mat-menu #menu="matMenu">
-                            </mat-menu>
-                        </td>
-                    </ng-container>
+              <ng-container matColumnDef="telefone">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Telefone </th>
+                <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="dtNascimento">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Data de Nascimento </th>
+                <td mat-cell *matCellDef="let element"> {{element.dtNascimento}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="endereco">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Endereço </th>
+                <td mat-cell *matCellDef="let element"> {{element.endereco}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                           showFirstLastButtons 
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+          
+        </mat-tab>
+        <mat-tab label="Médicos">
+
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourceMedico">
+
+              <ng-container matColumnDef="icone">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td class="layout-menu" mat-cell *matCellDef="let medicos">
+                    <button mat-icon-button aria-label="ícone Button" class="icon-spacing">
+                        <mat-icon color="primary"> border_color</mat-icon>
+                    </button>
+                    <button mat-icon-button aria-label="ícone Button" class="icon-spacing"
+                    >
+                        <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    </mat-menu>
+                </td>
+            </ng-container>
+        
+              <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Nome </th>
+                <td mat-cell *matCellDef="let medico"> {{medico.nome}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="numeroCRM">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Número CRM </th>
+                <td mat-cell *matCellDef="let medico"> {{medico.numeroCRM}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="especializacao">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Especialização </th>
+                <td mat-cell *matCellDef="let medico"> {{medico.especializacao}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="endereco">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Endereço </th>
+                <td mat-cell *matCellDef="let medico"> {{medico.endereco}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="pacientes">
+                <th mat-header-cell *matHeaderCellDef class="color-title"> Pacientes </th>
+                <td mat-cell *matCellDef="let element"> {{element.pacientes}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsMedico"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsMedico;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                           showFirstLastButtons 
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+          
+        
+        </mat-tab>
+        
+      </mat-tab-group>
+        
                 
-                      <ng-container matColumnDef="nome">
-                        <th mat-header-cell *matHeaderCellDef class="color-title"> Nome </th>
-                        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
-                      </ng-container>
-                  
-                      <ng-container matColumnDef="cpf">
-                        <th mat-header-cell *matHeaderCellDef class="color-title"> CPF </th>
-                        <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
-                      </ng-container>
-                  
-                      <ng-container matColumnDef="dtCriacao">
-                        <th mat-header-cell *matHeaderCellDef class="color-title"> Data de Criação </th>
-                        <td mat-cell *matCellDef="let element"> {{element.dtCriacao}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="telefone">
-                        <th mat-header-cell *matHeaderCellDef class="color-title"> Telefone </th>
-                        <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="dtNascimento">
-                        <th mat-header-cell *matHeaderCellDef class="color-title"> Data de Nascimento </th>
-                        <td mat-cell *matCellDef="let element"> {{element.dtNascimento}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="endereco">
-                        <th mat-header-cell *matHeaderCellDef class="color-title"> Endereço </th>
-                        <td mat-cell *matCellDef="let element"> {{element.endereco}} </td>
-                      </ng-container>
-
-                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
-                  
-                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                                   showFirstLastButtons 
-                                   aria-label="Select page of periodic elements">
-                    </mat-paginator>
-                  </div>
 
 
 
