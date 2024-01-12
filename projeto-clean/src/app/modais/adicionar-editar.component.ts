@@ -22,8 +22,8 @@ export class AdicionarEditarComponent implements OnInit {
   })
 
   constructor(private fb: FormBuilder, private pacienteService: PacienteService, 
-    private snackbar: MatSnackBar, private readonly dialogRef: MatDialogRef<AdicionarEditarComponent>,
-    private http: HttpClient) { }
+    private snackbar: MatSnackBar, 
+    private readonly dialogRef: MatDialogRef<AdicionarEditarComponent>) { }
 
   ngOnInit(): void {
   }

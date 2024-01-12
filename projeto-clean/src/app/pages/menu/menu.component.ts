@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { AdicionarEditarMedicoComponent } from 'src/app/modais/adicionar-editar-medico/adicionar-editar-medico.component';
 import { AdicionarEditarComponent } from 'src/app/modais/adicionar-editar.component';
 import { Medico } from 'src/app/model/medico';
 import { Paciente } from 'src/app/model/paciente';
@@ -35,7 +36,6 @@ export class MenuComponent implements OnInit {
     'numeroCRM', 
     'especializacao',  
     'endereco',
-    'pacientes',
     'icone'
   ];
 
@@ -57,7 +57,7 @@ export class MenuComponent implements OnInit {
     this.listarMedico();
   }
 
-  abrirAdicionarEditar() {
+  abrirAdicionarPaciente() {
 		const dialogRef = this.dialog.open(AdicionarEditarComponent);
     dialogRef.afterClosed().subscribe(() => {
       this.listarPaciente();
@@ -123,6 +123,21 @@ deletarMedico(medico: Medico): void {
           );
       }
   );
+}
+
+abrirAdicionarEditarMedico(medico?: Medico) {
+
+  const dialogRef = this.dialog.open(AdicionarEditarMedicoComponent, {
+      data: {
+          medico: medico
+      }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+          this.listarMedico();
+      }
+  });
 }
 
 

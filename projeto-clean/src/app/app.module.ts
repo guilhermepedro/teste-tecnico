@@ -12,6 +12,7 @@ import { AdicionarEditarComponent } from './modais/adicionar-editar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMaskModule } from 'ngx-mask';
+import { AdicionarEditarMedicoComponent } from './modais/adicionar-editar-medico/adicionar-editar-medico.component';
 
 
 
@@ -20,7 +21,8 @@ import { NgxMaskModule } from 'ngx-mask';
     AppComponent,
     MenuComponent,
     ToolbarComponent,
-    AdicionarEditarComponent
+    AdicionarEditarComponent,
+    AdicionarEditarMedicoComponent
   ],
   imports: [
     BrowserModule,

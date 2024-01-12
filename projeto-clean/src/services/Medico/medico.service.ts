@@ -24,6 +24,11 @@ export class MedicoService {
     return this.http.delete<void>(`${environment.url_api2}?medico_ID=${id}`).pipe(take(1));
   }
 
+  alterar(medico: Medico): Observable<Medico[]> {
+    return this.http.put<Medico[]>(`${environment.url_api2}`, medico).pipe(take(1));
+
+  }
+
 
 
 

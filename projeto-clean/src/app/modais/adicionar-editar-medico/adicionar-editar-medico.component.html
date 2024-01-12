@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Adicionar médico</h2>
+    </div>
+    <mat-dialog-content fxLayout="row" fxLayoutAlign="center" [formGroup]="formMedico">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" placeholder="Nome" #input>
+                </mat-form-field>
+            
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Número CRM</mat-label>
+                    <input matInput formControlName="numeroCRM" placeholder="Número CRM" #input>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+            
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Especialização</mat-label>
+                    <input matInput formControlName="especializacao" placeholder="Especialização" #input>
+                </mat-form-field>
+            
+                <mat-form-field fxFlex="grow" appearance="outline">
+                    <mat-label>Endereço</mat-label>
+                    <input matInput formControlName="endereco" placeholder="Endereço" #input>
+                </mat-form-field>
+            </div>
+            <button mat-button mat-raised-button color="primary" fxFlex="grow" (click)="adicionarEditarMedico()">
+                Salvar
+            </button>
+        </div>

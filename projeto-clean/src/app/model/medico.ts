@@ -4,6 +4,6 @@ export class Medico {
     endereco?: string;
     numeroCRM?: number;
     especializacao?: string;
-    pacientes?: [];
+    
 
 }
