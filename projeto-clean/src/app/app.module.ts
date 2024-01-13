@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMaskModule } from 'ngx-mask';
 import { AdicionarEditarMedicoComponent } from './modais/adicionar-editar-medico/adicionar-editar-medico.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -35,9 +37,11 @@ import { AdicionarEditarMedicoComponent } from './modais/adicionar-editar-medico
     NgxMaskModule.forRoot({
       dropSpecialCharacters: true // ao salvar, vai manter a mascara
     }),
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
-  providers: [],
+  providers: [MatDatepickerModule, MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

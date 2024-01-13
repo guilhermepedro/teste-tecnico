@@ -22,5 +22,9 @@ export class PacienteService {
   deletar(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.url_api}?paciente_ID=${id}`).pipe(take(1));
   }
+
+  alterar(paciente: Paciente): Observable<Paciente[]> {
+    return this.http.put<Paciente[]>(`${environment.url_api}`, paciente).pipe(take(1));
+  }
   
 }

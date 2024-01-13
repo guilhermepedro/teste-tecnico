@@ -57,14 +57,6 @@ export class MenuComponent implements OnInit {
     this.listarMedico();
   }
 
-  abrirAdicionarPaciente() {
-		const dialogRef = this.dialog.open(AdicionarEditarComponent);
-    dialogRef.afterClosed().subscribe(() => {
-      this.listarPaciente();
-    })
-
-	}
-
   listarPaciente() {
     this.pacienteService.listar().subscribe((response) => {
       this.listaPaciente = response;
@@ -136,6 +128,21 @@ abrirAdicionarEditarMedico(medico?: Medico) {
   dialogRef.afterClosed().subscribe(result => {
       if (result) {
           this.listarMedico();
+      }
+  });
+}
+
+abrirAdicionarEditarPaciente(paciente?: Paciente) {
+
+  const dialogRef = this.dialog.open(AdicionarEditarComponent, {
+      data: {
+          paciente: paciente
+      }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+          this.listarPaciente();
       }
   });
 }

@@ -2,7 +2,7 @@
     <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
         <h2 class="title m-0">Adicionar paciente</h2>
     </div>
-    <mat-dialog-content fxLayout="row" fxLayoutAlign="center" [formGroup]="form">
+    <mat-dialog-content fxLayout="row" fxLayoutAlign="center" [formGroup]="formPaciente">
         <div class="row">
             <div class="col-md-6">
                 <mat-form-field fxFlex="grow" appearance="outline">
@@ -16,27 +16,34 @@
                 </mat-form-field>
             </div>
             <div class="col-md-6">
+
                 <mat-form-field fxFlex="grow" appearance="outline">
                     <mat-label>Data de criação</mat-label>
-                    <input matInput formControlName="dtCriacao" placeholder="Data de criação" #input>
-                </mat-form-field>
-            
+                    <input matInput [matDatepicker]="picker" formControlName="dtCriacao">
+                    <mat-hint>Mês/Dia/Ano</mat-hint>
+                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+               
                 <mat-form-field fxFlex="grow" appearance="outline">
                     <mat-label>Telefone</mat-label>
                     <input matInput formControlName="telefone" placeholder="Telefone" mask="(00) 00000-0000" #input>
                 </mat-form-field>
-           
+
                 <mat-form-field fxFlex="grow" appearance="outline">
                     <mat-label>Data de nascimento</mat-label>
-                    <input matInput formControlName="dtNascimento" placeholder="Data de nascimento" #input>
-                </mat-form-field>
+                    <input matInput [matDatepicker]="dp3" formControlName="dtNascimento">
+                    <mat-hint>Mês/Dia/Ano</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+                    <mat-datepicker #dp3 ></mat-datepicker>
+                  </mat-form-field>
             
                 <mat-form-field fxFlex="grow" appearance="outline">
                     <mat-label>Endereço</mat-label>
                     <input matInput formControlName="endereco" placeholder="Endereço" #input>
                 </mat-form-field>
             </div>
-            <button mat-button mat-raised-button color="primary" fxFlex="grow" (click)=" adicionarPaciente()">
+            <button mat-button mat-raised-button color="primary" fxFlex="grow" (click)="adicionarEditarPaciente()">
                 Salvar
             </button>
         </div>

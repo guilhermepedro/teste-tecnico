@@ -16,6 +16,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 
 const MATERIAL: any = [
@@ -34,7 +36,8 @@ const MATERIAL: any = [
   MatMenuModule,
   MatSnackBarModule,
   MatSidenavModule,
-  MatTabsModule
+  MatTabsModule,
+  MatDatepickerModule
 ];
 
 
