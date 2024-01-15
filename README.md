@@ -8,7 +8,7 @@
 
     ```bash
     git clone https://github.com/guilhermepedro/teste-tecnico.git
-    git clone https://github.com/guilhermepedro/api-usuario.git  (rep do backend)
+    git clone https://github.com/guilhermepedro/api-usuario.git  (backend em Java)
     ```
 
 2. Navegue até o diretório do projeto:
