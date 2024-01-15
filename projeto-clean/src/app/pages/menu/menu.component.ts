@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,6 +21,8 @@ export class MenuComponent implements OnInit {
   listaPaciente: Paciente[] = [];
 
   listaMedico: Medico[] = [];
+
+  form: FormGroup;
 
   displayedColumns: string[] = [
     'nome', 
@@ -50,7 +53,14 @@ export class MenuComponent implements OnInit {
   }
   
   constructor(private dialog: MatDialog, private pacienteService: PacienteService, 
-    private medicoService: MedicoService, private snackbar: MatSnackBar) { }
+    private medicoService: MedicoService, private snackbar: MatSnackBar, private fb:FormBuilder) 
+    
+    {
+      this.form = fb.group({
+        filtro: [''],
+
+      })
+     }
 
   ngOnInit(): void {
     this.listarPaciente();
@@ -145,6 +155,18 @@ abrirAdicionarEditarPaciente(paciente?: Paciente) {
           this.listarPaciente();
       }
   });
+}
+
+filtrarPaciente() {
+  let formulario = this.form.value;
+  this.pacienteService.filtro(formulario.filtro).subscribe(response => {
+    this.listaPaciente = response;
+    this.dataSource = new MatTableDataSource<Paciente>(this.listaPaciente);
+    this.dataSource.paginator = this.paginator;
+  },
+    (error) => {
+      console.log(error)
+    });
 }
 
 

@@ -18,9 +18,9 @@
       <mat-tab-group>
         <mat-tab label="Pacientes">
 
-          <mat-form-field appearance="standard" fxFlex="grow">
+          <mat-form-field appearance="standard" fxFlex="grow" [formGroup]="form">
             <mat-label>Pesquisar paciente</mat-label>
-            <input matInput />
+            <input matInput formControlName="filtro" (change)="filtrarPaciente()" />
           </mat-form-field>
 
           <div class="mat-elevation-z8">

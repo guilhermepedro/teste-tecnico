@@ -41,7 +41,7 @@ export class AdicionarEditarComponent implements OnInit {
   adicionarPaciente() {
     let dadosPaciente = this.formPaciente.value;
     this.pacienteService.adicionar(dadosPaciente).subscribe(response => {
-      this.dialogRef.close();
+      this.dialogRef.close(true);
       this.snackbar.open(
 				"Paciente adicionada com sucesso",
 				"Fechar",
