@@ -17,6 +17,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 
 
@@ -37,7 +39,8 @@ const MATERIAL: any = [
   MatSnackBarModule,
   MatSidenavModule,
   MatTabsModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatCheckboxModule
 ];
 
 
