@@ -15,6 +15,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { AdicionarEditarMedicoComponent } from './modais/adicionar-editar-medico/adicionar-editar-medico.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -24,7 +25,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MenuComponent,
     ToolbarComponent,
     AdicionarEditarComponent,
-    AdicionarEditarMedicoComponent
+    AdicionarEditarMedicoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

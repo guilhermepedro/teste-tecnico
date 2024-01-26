@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LoginRoutingModule } from './login-routing.module';
+import { MaterialModule } from 'src/app/modules/material.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    MaterialModule
   ]
 })
 export class LoginModule { }
