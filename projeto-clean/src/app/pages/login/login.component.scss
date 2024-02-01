@@ -2,15 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150vh;
-    background-color: #ecf0f1;
+    height: 100vh;
+    
 }
 
 .content {
-    background-color: #fff;
+    background-color: #d6d4d4;
     border-radius: 15px;
     width: 960px;
-    height: 50%;
+    height: 70%;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -23,8 +23,6 @@
     height: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-
-
     left: 0;
 }
 .title {
@@ -126,8 +124,6 @@ input:-webkit-autofill
     padding: 0 5px;
 }
 
-/* second content*/
-
 .second-content {
     position: absolute;
     display: flex;
@@ -148,68 +144,4 @@ input:-webkit-autofill
 }
 .password::first-letter {
     text-transform: capitalize;
-}
-
-
-
-.sign-in-js .first-content .first-column {
-    z-index: -1;
-}
-
-.sign-in-js .second-content .second-column {
-    z-index: 11;
-}
-.sign-in-js .second-content .first-column {
-    z-index: 13;
-}
-
-.sign-in-js .content::before {
-    left: 60%;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    animation: slidein 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
-
-    z-index: 12;
-}
-
-@media screen and (max-width: 1040px) {
-    .content {
-        width: 100%;
-        height: 100%;
-    }
-
-    .content::before {
-        width: 100%;
-        height: 40%;
-        top: 0;
-        border-radius: 0;
-    }
-    .first-content, .second-content {
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    .first-column, .second-column {
-        width: 100%;
-    }
-    
-    .sign-in-js .content::before {
-        top: 60%;
-        left: 0;
-        border-radius: 0;
-
-    }
-
-    .form {
-        width: 90%;
-    }
-
-@media screen and (max-width: 740px) {
-    .form {
-        width: 50%;
-    }
-}
-
 }
