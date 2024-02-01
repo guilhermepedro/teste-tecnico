@@ -7,7 +7,7 @@ import { AutenticacaoService } from 'src/services/Autenticação/autenticacao.se
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   usuario: Usuario = new Usuario();
 
@@ -16,9 +16,6 @@ export class LoginComponent implements OnInit {
   fazerLogin() {
     this.autenticacaoService.fazerLogin(this.usuario);
     
-  }
-
-  ngOnInit(): void {
   }
 
 }

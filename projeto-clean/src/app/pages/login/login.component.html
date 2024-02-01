@@ -1,8 +1,5 @@
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 </head>
 <body>
@@ -11,27 +8,24 @@
             <div class="first-column">
                 <h2 class="title title-primary">Bem-vindo!</h2>
                 <p class="description description-primary">Entre para o time Clean.</p>
-                <button id="signin" class="btn btn-primary">Criar conta</button>
+                <button id="signin" class="btn btn-primary">Fazer cadastro</button>
                 
             </div>    
             <div class="second-column">
                 <h2 class="title title-second">Faça seu login</h2>
                 <form class="form">
                     <label class="label-input" for="">
-                        <i class="far fa-user icon-modify"></i>
                         <input [(ngModel)]="usuario.nome" name="nome" type="text" placeholder="Nome">
                     </label>
                     
                     <label class="label-input" for="">
-                        <i class="fas fa-lock icon-modify"></i>
                         <input [(ngModel)]="usuario.senha" name="senha" type="password" placeholder="Senha">
                     </label>
-                          
+
                     <button class="btn btn-second" (click)="fazerLogin()">Entrar</button>       
                 </form>
             </div>
         </div>
-       
     </div>
     
 </body>
