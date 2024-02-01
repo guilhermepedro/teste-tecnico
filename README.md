@@ -26,4 +26,11 @@
 ## Uso
 
 ```bash
-npm start
+ng start ou ng s
+
+Login da aplicação:
+
+Email: usuario@gmail.com
+Senha: 123456
+
+Utilize os dados acima para acessar a aplicação.
