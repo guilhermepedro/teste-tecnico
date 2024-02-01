@@ -12,7 +12,7 @@ export class AutenticacaoService {
   constructor(private router: Router) { }
 
   fazerLogin (usuario: Usuario) {
-    if (usuario.nome === 'usuario@gmail.com' &&
+    if (usuario.email === 'usuario@gmail.com' &&
     usuario.senha === '123456') {
 
       this.usuarioAutenticado = true;
